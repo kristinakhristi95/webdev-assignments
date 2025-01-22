@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Hello World',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.lightBlue[50],
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -56,6 +57,7 @@ class _MyHomePage extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pay Calculator'),
+        backgroundColor: Colors.blue[700],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -86,7 +88,11 @@ class _MyHomePage extends State<MyHomePage> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: calculatePay,
-                    child: const Text('Calculate Payment'),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 210, 210, 25), // Change button color
+                        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                      ),
+                    child: const Text('Calculate Payment',  style: TextStyle(fontSize: 18,color: Colors.white,)),
                   ),
                   const SizedBox(height: 16),
                   Text('Regular Pay: \$${regularPay.toStringAsFixed(2)}'),
